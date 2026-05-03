@@ -1,0 +1,9 @@
+export enum HarvestStatus {
+  DRAFT = 'DRAFT',
+  TOKENIZED = 'TOKENIZED',
+  LISTED = 'LISTED',
+  PLEDGED = 'PLEDGED',
+  DELIVERED = 'DELIVERED',
+  SETTLED = 'SETTLED',
+  DISPUTED = 'DISPUTED',
+}
