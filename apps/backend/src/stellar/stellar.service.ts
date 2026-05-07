@@ -84,7 +84,7 @@ export class StellarService {
           destination,
           destAsset,
           destAmount,
-          path: paths.records[0]?.path ?? [],
+          path: (paths.records[0]?.path ?? []) as any,
         }),
       )
       .setTimeout(180)

@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { AuthService } from './auth.service';
 import { JwtService } from '@nestjs/jwt';
 import { StellarService } from '../../stellar/stellar.service';
+import { FarmersService } from '../farmers/farmers.service';
 import { UnauthorizedException } from '@nestjs/common';
 
 describe('AuthService', () => {
