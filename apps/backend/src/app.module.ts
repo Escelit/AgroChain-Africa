@@ -11,6 +11,7 @@ import { PaymentsModule } from './modules/payments/payments.module';
 import { OracleModule } from './modules/oracle/oracle.module';
 import { MarketplaceModule } from './modules/marketplace/marketplace.module';
 import { NotificationsModule } from './modules/notifications/notifications.module';
+import { LoansModule } from './modules/loans/loans.module';
 import { StellarModule } from './stellar/stellar.module';
 
 @Module({
@@ -46,6 +47,7 @@ import { StellarModule } from './stellar/stellar.module';
     OracleModule,
     MarketplaceModule,
     NotificationsModule,
+    LoansModule,
   ],
 })
 export class AppModule {}
