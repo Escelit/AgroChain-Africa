@@ -1,0 +1,18 @@
+# Code Owners
+# These people are automatically requested for review on PRs touching their areas.
+
+# Global fallback
+* @Escelit
+
+# Smart contracts
+/contracts/ @Escelit
+
+# Backend
+/apps/backend/ @Escelit
+
+# Frontend
+/apps/frontend/ @Escelit
+
+# Infrastructure
+/docker/ @Escelit
+/.github/ @Escelit
