@@ -24,7 +24,7 @@ import { MarketplaceService, MarketplaceLot } from '../../../core/services/marke
                 <p class="text-gray-500 text-sm">Harvest: {{ lot()!.harvest.harvestDate | date:'mediumDate' }}</p>
               </div>
               @if (lot()!.harvest.estimatedValueUsdc) {
-                <p class="text-2xl font-bold text-green-700">${{ lot()!.harvest.estimatedValueUsdc }} USDC</p>
+                <p class="text-2xl font-bold text-green-700">\${{ lot()!.harvest.estimatedValueUsdc }} USDC</p>
               }
             </div>
           </div>

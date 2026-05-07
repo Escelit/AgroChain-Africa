@@ -40,7 +40,7 @@ interface PlatformStats {
           </div>
           <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
             <p class="text-sm text-gray-500">Total Value Locked</p>
-            <p class="text-2xl font-bold text-purple-600">${{ stats()!.totalContractsValue | number:'1.0-0' }}</p>
+            <p class="text-2xl font-bold text-purple-600">\${{ stats()!.totalContractsValue | number:'1.0-0' }}</p>
             <p class="text-xs text-gray-400">USDC</p>
           </div>
           <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">

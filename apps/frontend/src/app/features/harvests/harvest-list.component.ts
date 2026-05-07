@@ -42,7 +42,7 @@ import { selectAllHarvests, selectHarvestsLoading } from '../../../store/harvest
                 <p class="text-sm text-gray-500 mt-1">
                   {{ harvest.weightKg }} kg · {{ harvest.harvestDate | date:'mediumDate' }}
                   @if (harvest.estimatedValueUsdc) {
-                    · ~${{ harvest.estimatedValueUsdc }} USDC
+                    · ~\${{ harvest.estimatedValueUsdc }} USDC
                   }
                 </p>
                 @if (harvest.stellarBatchId) {

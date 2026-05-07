@@ -75,14 +75,14 @@ import { HarvestsService } from '../../../core/services/harvests.service';
             <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-5">
               <div class="flex justify-between items-start">
                 <div>
-                  <p class="font-semibold text-gray-800">${{ loan.principalUsdc }} USDC</p>
+                  <p class="font-semibold text-gray-800">\${{ loan.principalUsdc }} USDC</p>
                   <p class="text-sm text-gray-500 mt-1">
                     Interest: {{ loan.interestBps / 100 }}% · Due: {{ loan.dueDate | date:'mediumDate' }}
                   </p>
                   <div class="mt-2">
                     <div class="flex justify-between text-xs text-gray-500 mb-1">
-                      <span>Repaid: ${{ loan.repaidUsdc }}</span>
-                      <span>Total: ${{ (loan.principalUsdc * (1 + loan.interestBps / 10000)).toFixed(2) }}</span>
+                      <span>Repaid: \${{ loan.repaidUsdc }}</span>
+                      <span>Total: \${{ (loan.principalUsdc * (1 + loan.interestBps / 10000)).toFixed(2) }}</span>
                     </div>
                     <div class="bg-gray-100 rounded-full h-1.5">
                       <div class="bg-purple-600 rounded-full h-1.5"

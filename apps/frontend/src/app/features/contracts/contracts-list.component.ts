@@ -31,7 +31,7 @@ import { ContractsService, EscrowContract } from '../../../core/services/contrac
                   <p class="text-sm text-gray-500 mt-1">
                     Buyer: {{ contract.buyerName || contract.buyerPublicKey.slice(0, 12) }}...
                   </p>
-                  <p class="text-sm text-gray-500">Amount: ${{ contract.amountUsdc }} USDC</p>
+                  <p class="text-sm text-gray-500">Amount: \${{ contract.amountUsdc }} USDC</p>
                   <p class="text-sm text-gray-500">Expected: {{ contract.expectedWeightKg }} kg</p>
                 </div>
                 <span class="text-xs px-2 py-1 rounded-full font-medium"

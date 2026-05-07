@@ -49,7 +49,7 @@ import { combineLatest, map } from 'rxjs';
       <!-- Total value locked -->
       <div class="bg-gradient-to-r from-green-700 to-green-500 text-white rounded-xl p-6 mb-8">
         <p class="text-sm opacity-75">Total Value in Active Contracts</p>
-        <p class="text-4xl font-bold mt-1">${{ totalValueLocked() | number:'1.2-2' }} USDC</p>
+        <p class="text-4xl font-bold mt-1">\${{ totalValueLocked() | number:'1.2-2' }} USDC</p>
         <p class="text-sm opacity-75 mt-1">Secured in Soroban escrow</p>
       </div>
 
@@ -90,7 +90,7 @@ import { combineLatest, map } from 'rxjs';
               <div class="px-6 py-4 flex justify-between items-center hover:bg-gray-50">
                 <div>
                   <p class="font-medium text-gray-800">{{ harvest.commodity }} — {{ harvest.grade }}</p>
-                  <p class="text-sm text-gray-500">{{ harvest.weightKg }} kg · {{ harvest.harvestDate | date:'mediumDate' }}</p>
+                  <p class="text-sm text-gray-500">{{ harvest.weightKg }} kg · {{ harvest.harvestDate | date }}</p>
                 </div>
                 <span class="text-xs px-2 py-1 rounded-full font-medium" [class]="statusClass(harvest.status)">
                   {{ harvest.status }}

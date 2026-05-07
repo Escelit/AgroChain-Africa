@@ -45,7 +45,7 @@ interface Payment {
                 }
               </div>
               <p class="text-lg font-bold" [class]="p.type === 'LOAN_DISBURSEMENT' ? 'text-green-600' : 'text-gray-800'">
-                ${{ p.amountUsdc }} USDC
+                \${{ p.amountUsdc }} USDC
               </p>
             </div>
           }

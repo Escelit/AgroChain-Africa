@@ -32,7 +32,7 @@ import { environment } from '../../../../environments/environment';
               <h3 class="font-semibold text-gray-800">{{ lot.commodity }}</h3>
               <p class="text-sm text-gray-500 mt-1">{{ lot.weightKg }} kg</p>
               @if (lot.estimatedValueUsdc) {
-                <p class="text-lg font-bold text-green-700 mt-2">${{ lot.estimatedValueUsdc }} USDC</p>
+                <p class="text-lg font-bold text-green-700 mt-2">\${{ lot.estimatedValueUsdc }} USDC</p>
               }
               <p class="text-xs text-gray-400 mt-2">Harvest: {{ lot.harvestDate | date:'mediumDate' }}</p>
               <button class="mt-4 w-full bg-green-700 hover:bg-green-800 text-white text-sm py-2 rounded-lg transition-colors">
