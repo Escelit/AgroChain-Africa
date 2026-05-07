@@ -26,18 +26,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: apps/backend/package-lock.json
+          # No cache — no lockfile committed yet
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
         working-directory: apps/backend
 
       - name: Lint
-        run: npm run lint
+        run: npm run lint -- --max-warnings=0
         working-directory: apps/backend
 
       - name: Unit tests
@@ -49,6 +49,8 @@ jobs:
           REDIS_URL: redis://localhost:6379
           JWT_SECRET: test-secret
           STELLAR_NETWORK: testnet
+          PLATFORM_SIGNER_SECRET: ''
+          ORACLE_API_KEY: test-key
 
   contracts:
     name: Soroban contracts — build & test
@@ -68,7 +70,8 @@ jobs:
             ~/.cargo/registry
             ~/.cargo/git
             contracts/target
-          key: ${{ runner.os }}-cargo-${{ hashFiles('contracts/Cargo.lock') }}
+          key: ${{ runner.os }}-cargo-${{ hashFiles('contracts/**/Cargo.toml') }}
+          restore-keys: ${{ runner.os }}-cargo-
 
       - name: Run contract tests
         run: cargo test
@@ -79,20 +82,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: apps/frontend/package-lock.json
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
         working-directory: apps/frontend
 
-      - name: Lint
-        run: npm run lint -- --max-warnings=0
+      - name: Build (type-check)
+        run: npm run build -- --configuration development
         working-directory: apps/frontend
 
       - name: Unit tests
-        run: npm run test -- --watch=false --browsers=ChromeHeadless
+        run: npm run test -- --watch=false --browsers=ChromeHeadless --no-progress
         working-directory: apps/frontend

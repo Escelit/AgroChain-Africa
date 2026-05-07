@@ -37,7 +37,7 @@ coverage/
 
 # Rust
 contracts/target/
-Cargo.lock
+# Cargo.lock is intentionally committed for reproducible contract builds
 
 # Docker
 docker/volumes/

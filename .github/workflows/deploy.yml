@@ -1,8 +1,8 @@
 name: Deploy to Production
 
 on:
+  # Only deploy on version tags — never on plain pushes to main
   push:
-    branches: [main]
     tags: ['v*']
 
 env:
@@ -34,28 +34,21 @@ jobs:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker build -f docker/Dockerfile.backend -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG apps/backend
+          docker build -f docker/Dockerfile.backend \
+            -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG \
+            -t $ECR_REGISTRY/$ECR_REPOSITORY:latest \
+            apps/backend
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
 
       - name: Build Angular frontend
-        run: |
-          cd apps/frontend
-          npm ci
-          npm run build:prod
+        run: npm install && npm run build:prod
+        working-directory: apps/frontend
 
       - name: Deploy to ECS
-        env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          IMAGE_TAG: ${{ github.sha }}
         run: |
           aws ecs update-service \
             --cluster agrochain-prod \
             --service agrochain-backend \
             --force-new-deployment \
             --region ${{ env.AWS_REGION }}
-
-      - name: Notify deployment
-        if: success()
-        run: echo "✅ Deployed ${{ github.sha }} to production"
