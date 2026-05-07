@@ -2,13 +2,11 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { AuthService } from './auth.service';
 import { JwtService } from '@nestjs/jwt';
 import { StellarService } from '../../stellar/stellar.service';
-import { FarmersService } from '../farmers/farmers.service';
 import { UnauthorizedException } from '@nestjs/common';
 
 describe('AuthService', () => {
   let service: AuthService;
   let stellarService: jest.Mocked<StellarService>;
-  let farmersService: jest.Mocked<FarmersService>;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -37,7 +35,6 @@ describe('AuthService', () => {
 
     service = module.get(AuthService);
     stellarService = module.get(StellarService);
-    farmersService = module.get(FarmersService);
   });
 
   it('should return a challenge', async () => {

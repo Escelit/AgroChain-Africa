@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { EscrowContract } from './entities/escrow-contract.entity';
 import { ContractStatus } from './entities/contract-status.enum';
-import { CreateContractDto, DisputeContractDto } from './dto/contract.dto';
+import { CreateContractDto } from './dto/contract.dto';
 import { HarvestsService } from '../harvests/harvests.service';
 import { HarvestStatus } from '../harvests/entities/harvest-status.enum';
 import { SorobanService } from '../../stellar/soroban.service';

@@ -1,4 +1,4 @@
-import { IsOptional, IsString, IsPhoneNumber, Length } from 'class-validator';
+import { IsOptional, IsString, Length } from 'class-validator';
 import { ApiPropertyOptional } from '@nestjs/swagger';
 
 export class UpdateFarmerDto {

@@ -1,5 +1,5 @@
-import { IsString, IsNumber, IsEnum, IsOptional, Min, Max } from 'class-validator';
-import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { IsString, IsNumber, Min, Max } from 'class-validator';
+import { ApiProperty } from '@nestjs/swagger';
 
 export enum LoanStatus {
   ACTIVE = 'ACTIVE',

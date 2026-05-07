@@ -79,7 +79,6 @@ export class SorobanService {
       await new Promise(r => setTimeout(r, 1500));
       const result = await this.rpcServer.getTransaction(hash);
       if (result.status === SorobanRpc.Api.GetTransactionStatus.SUCCESS) {
-        const meta = result.resultMetaXdr;
         return result;
       }
       if (result.status === SorobanRpc.Api.GetTransactionStatus.FAILED) {

@@ -1,4 +1,4 @@
-import { IsString, IsNumber, IsObject } from 'class-validator';
+import { IsString, IsObject } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class OracleDeliveryDto {

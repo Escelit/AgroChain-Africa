@@ -1,5 +1,5 @@
 import {
-  Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToOne,
+  Entity, PrimaryGeneratedColumn, Column, ManyToOne,
   CreateDateColumn, UpdateDateColumn, JoinColumn,
 } from 'typeorm';
 import { Farmer } from '../../farmers/entities/farmer.entity';

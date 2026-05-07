@@ -118,7 +118,7 @@ export class StellarService {
     return tx.toEnvelope().toXDR('base64');
   }
 
-  async verifyChallengeTransaction(signedXdr: string, publicKey: string): Promise<boolean> {
+  async verifyChallengeTransaction(signedXdr: string, _publicKey: string): Promise<boolean> {
     try {
       const { TransactionBuilder } = await import('@stellar/stellar-sdk');
       const tx = TransactionBuilder.fromXDR(signedXdr, this.network);
