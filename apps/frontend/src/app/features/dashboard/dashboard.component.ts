@@ -4,7 +4,7 @@ import { RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { HarvestActions } from '../../store/harvests/harvests.actions';
 import { ContractActions } from '../../store/contracts/contracts.actions';
-import { selectAllHarvests, selectHarvestsLoading } from '../../store/harvests/harvests.selectors';
+import { selectAllHarvests, selectHarvestsLoading, selectTokenizedHarvests } from '../../store/harvests/harvests.selectors';
 import { selectAllContracts, selectActiveContracts } from '../../store/contracts/contracts.selectors';
 import { AuthService } from '../../core/services/auth.service';
 import { FarmerService, FarmerProfile } from '../../core/services/farmer.service';
@@ -32,9 +32,7 @@ import { combineLatest, map } from 'rxjs';
         </div>
         <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
           <p class="text-sm text-gray-500">On Stellar</p>
-          <p class="text-3xl font-bold text-blue-600">
-            {{ (harvests$ | async)?.filter(h => h.stellarBatchId)?.length ?? 0 }}
-          </p>
+          <p class="text-3xl font-bold text-blue-600">{{ tokenizedCount$ | async }}</p>
         </div>
         <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
           <p class="text-sm text-gray-500">Active Contracts</p>
@@ -106,6 +104,7 @@ import { combineLatest, map } from 'rxjs';
 export class DashboardComponent implements OnInit {
   harvests$ = this.store.select(selectAllHarvests);
   loading$ = this.store.select(selectHarvestsLoading);
+  tokenizedCount$ = this.store.select(selectTokenizedHarvests).pipe(map(h => h.length));
   activeContracts$ = this.store.select(selectActiveContracts);
   profile = signal<FarmerProfile | null>(null);
   totalValueLocked = signal(0);
