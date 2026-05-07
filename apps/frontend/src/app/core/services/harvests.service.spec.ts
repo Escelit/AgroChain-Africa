@@ -20,7 +20,7 @@ describe('HarvestsService', () => {
 
   it('should fetch all harvests', () => {
     const mockHarvests = [{ id: '1', commodity: 'MAIZE', status: 'TOKENIZED' }];
-    service.getAll().subscribe(h => expect(h).toEqual(mockHarvests));
+    service.getAll().subscribe(h => expect(h as any).toEqual(mockHarvests));
     const req = httpMock.expectOne(`${environment.apiUrl}/harvests`);
     expect(req.request.method).toBe('GET');
     req.flush(mockHarvests);

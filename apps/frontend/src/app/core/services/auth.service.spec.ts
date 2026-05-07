@@ -7,18 +7,17 @@ import { environment } from '../../../environments/environment';
 describe('AuthService', () => {
   let service: AuthService;
   let httpMock: HttpTestingController;
-  let walletSpy: jest.Mocked<WalletService>;
+  let walletSpy: jasmine.SpyObj<WalletService>;
 
   beforeEach(() => {
-    walletSpy = {
-      connect: jest.fn().mockResolvedValue('GTEST'),
-      signTransaction: jest.fn().mockResolvedValue('signed-xdr'),
-      disconnect: jest.fn(),
-      getPublicKey: jest.fn().mockReturnValue('GTEST'),
-      publicKey$: { pipe: jest.fn() } as any,
-      connected$: {} as any,
-      connecting: { set: jest.fn() } as any,
-    } as any;
+    walletSpy = jasmine.createSpyObj('WalletService', ['connect', 'signTransaction', 'disconnect', 'getPublicKey'], {
+      publicKey$: { pipe: jasmine.createSpy() },
+      connected$: {},
+      connecting: { set: jasmine.createSpy() },
+    });
+    walletSpy.connect.and.returnValue(Promise.resolve('GTEST'));
+    walletSpy.signTransaction.and.returnValue(Promise.resolve('signed-xdr'));
+    walletSpy.getPublicKey.and.returnValue('GTEST');
 
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],

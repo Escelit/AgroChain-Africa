@@ -27,15 +27,15 @@ describe('harvestsReducer', () => {
   });
 
   it('should prepend new harvest on createHarvestSuccess', () => {
-    const existing = { items: [{ id: '1' }] as any, loading: false, error: null };
+    const existing: HarvestsState = { items: [{ id: '1' }] as any, loading: false, error: null };
     const harvest = { id: '2', commodity: 'COFFEE' } as any;
     const state = harvestsReducer(existing, HarvestActions.createHarvestSuccess({ harvest }));
     expect(state.items[0].id).toBe('2');
-    expect(state.items).toHaveLength(2);
+    expect(state.items.length).toBe(2);
   });
 
   it('should update harvest on tokenizeHarvestSuccess', () => {
-    const existing = { items: [{ id: '1', status: 'DRAFT' }] as any, loading: false, error: null };
+    const existing: HarvestsState = { items: [{ id: '1', status: 'DRAFT' }] as any, loading: false, error: null };
     const harvest = { id: '1', status: 'TOKENIZED', stellarBatchId: 'batch-1' } as any;
     const state = harvestsReducer(existing, HarvestActions.tokenizeHarvestSuccess({ harvest }));
     expect(state.items[0].status).toBe('TOKENIZED');
