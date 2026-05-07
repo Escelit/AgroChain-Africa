@@ -1236,6 +1236,16 @@ npm run start
 # App available at http://localhost:4200
 ```
 
+### 6. Deploy frontend to Vercel (optional)
+
+The frontend can be deployed to Vercel for a live preview URL:
+
+1. Go to [vercel.com/new](https://vercel.com/new) and import the GitHub repo
+2. Set **Root Directory** to `apps/frontend`
+3. Click **Deploy** — the `vercel.json` handles the rest
+
+All Angular client-side routes are rewritten to `index.html` automatically.
+
 ---
 
 ## Testing
@@ -1283,6 +1293,10 @@ npm run e2e          # Playwright e2e tests
 docker compose -f docker/docker-compose.prod.yml up -d
 ```
 
+### Vercel (frontend)
+
+Push to `main` — Vercel auto-deploys the frontend via the `vercel.json` in `apps/frontend`.
+
 ### GitHub Actions CI/CD
 
 The pipeline (`.github/workflows/deploy.yml`) runs on every push to `main`:
@@ -1299,9 +1313,9 @@ The pipeline (`.github/workflows/deploy.yml`) runs on every push to `main`:
 
 ### Phase 1 — Core
 - [x] Architecture design
-- [ ] Soroban contract development + testnet deployment
-- [ ] NestJS backend: auth, farmers, harvests, escrow
-- [ ] Angular PWA: farmer onboarding, harvest tokenization, escrow view
+- [x] Soroban contract development + testnet deployment
+- [x] NestJS backend: auth, farmers, harvests, escrow
+- [x] Angular PWA: farmer onboarding, harvest tokenization, escrow view
 - [ ] M-Pesa anchor integration
 
 ### Phase 2 — Financing
