@@ -1,7 +1,7 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
-import { FarmerService, FarmerProfile } from '../../../core/services/farmer.service';
+import { FarmerService, FarmerProfile } from '../../core/services/farmer.service';
 
 @Component({
   selector: 'app-profile',

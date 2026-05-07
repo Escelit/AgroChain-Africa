@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { HarvestActions } from '../../../store/harvests/harvests.actions';
+import { HarvestActions } from '../../store/harvests/harvests.actions';
 import { firstValueFrom } from 'rxjs';
 import { Actions, ofType } from '@ngrx/effects';
 

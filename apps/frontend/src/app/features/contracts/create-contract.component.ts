@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { selectTokenizedHarvests } from '../../../store/harvests/harvests.selectors';
-import { HarvestActions } from '../../../store/harvests/harvests.actions';
-import { ContractActions } from '../../../store/contracts/contracts.actions';
+import { selectTokenizedHarvests } from '../../store/harvests/harvests.selectors';
+import { HarvestActions } from '../../store/harvests/harvests.actions';
+import { ContractActions } from '../../store/contracts/contracts.actions';
 import { Actions, ofType } from '@ngrx/effects';
 import { firstValueFrom } from 'rxjs';
 

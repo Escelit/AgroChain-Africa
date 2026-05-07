@@ -1,7 +1,7 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { MarketplaceService, MarketplaceLot } from '../../../core/services/marketplace.service';
+import { MarketplaceService, MarketplaceLot } from '../../core/services/marketplace.service';
 
 @Component({
   selector: 'app-lot-detail',

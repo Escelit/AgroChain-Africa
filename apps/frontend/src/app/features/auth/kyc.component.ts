@@ -2,8 +2,8 @@ import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../../environments/environment';
-import { FarmerService } from '../../../core/services/farmer.service';
+import { environment } from '../../../environments/environment';
+import { FarmerService } from '../../core/services/farmer.service';
 
 @Component({
   selector: 'app-kyc',

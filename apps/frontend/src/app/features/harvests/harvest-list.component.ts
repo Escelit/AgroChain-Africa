@@ -2,8 +2,8 @@ import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { HarvestActions } from '../../../store/harvests/harvests.actions';
-import { selectAllHarvests, selectHarvestsLoading } from '../../../store/harvests/harvests.selectors';
+import { HarvestActions } from '../../store/harvests/harvests.actions';
+import { selectAllHarvests, selectHarvestsLoading } from '../../store/harvests/harvests.selectors';
 
 @Component({
   selector: 'app-harvest-list',

@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { CanActivate, ExecutionContext, Router } from '@angular/router';
+import { inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 export const guestGuard = () => {
@@ -8,5 +8,3 @@ export const guestGuard = () => {
   if (!auth.isAuthenticated()) return true;
   return router.createUrlTree(['/dashboard']);
 };
-
-import { inject } from '@angular/core';

@@ -1,8 +1,8 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
-import { LoansService, Loan } from '../../../core/services/loans.service';
-import { HarvestsService } from '../../../core/services/harvests.service';
+import { LoansService, Loan } from '../../core/services/loans.service';
+import { HarvestsService } from '../../core/services/harvests.service';
 
 @Component({
   selector: 'app-loans',

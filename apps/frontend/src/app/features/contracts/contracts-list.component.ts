@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { ContractsService, EscrowContract } from '../../../core/services/contracts.service';
+import { ContractsService, EscrowContract } from '../../core/services/contracts.service';
 
 @Component({
   selector: 'app-contracts-list',
