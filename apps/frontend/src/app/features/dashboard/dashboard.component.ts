@@ -5,10 +5,10 @@ import { Store } from '@ngrx/store';
 import { HarvestActions } from '../../store/harvests/harvests.actions';
 import { ContractActions } from '../../store/contracts/contracts.actions';
 import { selectAllHarvests, selectHarvestsLoading, selectTokenizedHarvests } from '../../store/harvests/harvests.selectors';
-import { selectAllContracts, selectActiveContracts } from '../../store/contracts/contracts.selectors';
+import { selectActiveContracts } from '../../store/contracts/contracts.selectors';
 import { AuthService } from '../../core/services/auth.service';
 import { FarmerService, FarmerProfile } from '../../core/services/farmer.service';
-import { combineLatest, map } from 'rxjs';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
