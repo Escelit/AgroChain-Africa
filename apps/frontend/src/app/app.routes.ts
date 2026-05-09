@@ -33,8 +33,36 @@ export const routes: Routes = [
   {
     path: 'contracts',
     canActivate: [authGuard],
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('./features/contracts/contracts-list.component').then(m => m.ContractsListComponent),
+      },
+      {
+        path: 'new',
+        loadComponent: () =>
+          import('./features/contracts/create-contract.component').then(m => m.CreateContractComponent),
+      },
+    ],
+  },
+  {
+    path: 'loans',
+    canActivate: [authGuard],
     loadComponent: () =>
-      import('./features/contracts/contracts-list.component').then(m => m.ContractsListComponent),
+      import('./features/loans/loans.component').then(m => m.LoansComponent),
+  },
+  {
+    path: 'payments',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./features/payments/payments.component').then(m => m.PaymentsComponent),
+  },
+  {
+    path: 'profile',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./features/profile/profile.component').then(m => m.ProfileComponent),
   },
   {
     path: 'marketplace',
